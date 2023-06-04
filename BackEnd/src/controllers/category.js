@@ -83,6 +83,7 @@ export const remove = async (req, res) =>{
 }
 
 export const update = async (req, res ) =>{
+//testing
     try {
         const data = await Category.findOneAndUpdate({_id:req.params.id}, req.body, {new:true});
         if(!data){
