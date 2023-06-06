@@ -23,6 +23,7 @@ export class ProductService {
   addProduct(product: IProduct): Observable<IProduct> {
     return this.http.post<IProduct>(`http://localhost:8081/api/products`, product);
   }
+<<<<<<< HEAD
 
   uploadImage(image: File): Observable<IProduct> {
     const formData = new FormData();
@@ -33,4 +34,9 @@ export class ProductService {
   // updateProduct(product: IProduct): Observable<IProduct> {
   //   return this.http.patch<IProduct>(`http://localhost:3000/products/${product.id}`, product);
   // }
+=======
+  updateProduct(product: IProduct): Observable<IProduct> {
+    return this.http.patch<IProduct>(`http://localhost:3000/products/${product._id}`, product);
+  }
+>>>>>>> 1ff7d5b (style: edit-product)
 }
