@@ -36,7 +36,7 @@ export class ProductService {
   // }
 =======
   updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(`http://localhost:3000/products/${product._id}`, product);
+    return this.http.patch<IProduct>(`http://localhost:8081/api/products/${product._id}`, product);
   }
 >>>>>>> 1ff7d5b (style: edit-product)
 }
