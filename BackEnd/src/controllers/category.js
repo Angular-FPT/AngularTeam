@@ -2,6 +2,8 @@ import Joi from "joi";
 import Products from "../model/products";
 import Category from "../model/category"
 
+//testing
+
 const categorySchema = Joi.object({
     name: Joi.string().required(),
 });
@@ -83,6 +85,7 @@ export const remove = async (req, res) =>{
 }
 
 export const update = async (req, res ) =>{
+//testing
     try {
         const data = await Category.findOneAndUpdate({_id:req.params.id}, req.body, {new:true});
         if(!data){
