@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
     this.loadCategories();
   }
 
-  loadProducts() {
+  constructor(private productService: ProductService) {
     this.productService.getProducts().subscribe(
       (data: any) => {
         this.products = data.docs;
