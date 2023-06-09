@@ -20,6 +20,7 @@ import { ProductComponent } from './pages/client/product/product.component';
 import { CategoryAddComponent } from './pages/admin/category-add/category-add.component';
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
 import { CategoriesComponent } from './pages/client/categories/categories.component';
+import { SigninComponent } from './pages/client/signin/signin.component';
 import { RegisterComponent } from './pages/client/register/register.component';
 import { UserListComponent } from './pages/admin/user-list/user-list.component';
 
@@ -36,6 +37,7 @@ import { UserListComponent } from './pages/admin/user-list/user-list.component';
     CategoryAddComponent,
     CategoryListComponent,
     CategoriesComponent,
+    SigninComponent,
     RegisterComponent,
     UserListComponent,
   ],
