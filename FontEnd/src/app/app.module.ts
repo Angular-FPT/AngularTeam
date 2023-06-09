@@ -23,6 +23,7 @@ import { CategoriesComponent } from './pages/client/categories/categories.compon
 import { SigninComponent } from './pages/client/signin/signin.component';
 import { RegisterComponent } from './pages/client/register/register.component';
 import { UserListComponent } from './pages/admin/user-list/user-list.component';
+import { CategoryEditComponent } from './pages/admin/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UserListComponent } from './pages/admin/user-list/user-list.component';
     SigninComponent,
     RegisterComponent,
     UserListComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,
