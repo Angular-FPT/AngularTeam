@@ -12,6 +12,8 @@ import { ICategory } from 'src/app/interface/Category';
 export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   categories: ICategory[] = [];
+  filteredProducts: IProduct[] = [];
+  categoryFilter: string | null = null;
 
   constructor(
     private productService: ProductService,
@@ -27,6 +29,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (data: any) => {
         this.products = data.docs;
+        this.filteredProducts = data.docs;
         console.log(data.docs);
       },
       (error) => {
@@ -47,7 +50,10 @@ export class ProductListComponent implements OnInit {
   }
 
   getCategoryName(categoryId: string | number | undefined): string {
-    const categoryIdStr = typeof categoryId === 'number' ? categoryId.toString() : categoryId as string;
+    const categoryIdStr =
+      typeof categoryId === 'number'
+        ? categoryId.toString()
+        : (categoryId as string);
     const category = this.categories.find((c) => c._id === categoryIdStr);
     return category ? category.name : '';
   }
@@ -57,5 +63,19 @@ export class ProductListComponent implements OnInit {
       console.log('delete thanh cong');
       this.products = this.products.filter((product) => product._id !== id);
     });
+  }
+
+  filterProducts() {
+    this.filteredProducts = this.products.filter((product) => {
+      if (this.categoryFilter !== null && this.categoryFilter !== '' && product.categoryId !== this.categoryFilter) {
+        return false;
+      }
+      return true;
+    });
+  }
+  
+  resetFilters() {
+    this.categoryFilter = null;
+    this.filterProducts();
   }
 }
