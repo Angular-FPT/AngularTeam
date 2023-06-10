@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productService.getProducts().subscribe(
+    this.productService.getProductsAdmin().subscribe(
       (data: any) => {
         this.products = data.docs;
         this.filteredProducts = data.docs;
