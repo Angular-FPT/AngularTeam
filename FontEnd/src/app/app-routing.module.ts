@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/client/home-page/home-page.component'
 import { ProductComponent } from './pages/client/product/product.component';
 import { CategoryListComponent } from './pages/admin/category-list/category-list.component';
 import { CategoryAddComponent } from './pages/admin/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/admin/category-edit/category-edit.component';
 import { CategoriesComponent } from './pages/client/categories/categories.component';
 import { SigninComponent } from './pages/client/signin/signin.component';
 import { RegisterComponent } from './pages/client/register/register.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
       { path: 'product/:id/edit', component: ProductEditComponent },
       { path: 'category', component: CategoryListComponent },
       { path: 'category/add', component: CategoryAddComponent },
-      
+      { path: 'category/:id/edit', component: CategoryEditComponent },
     ],
   },
   {
