@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -24,6 +24,7 @@ import { SigninComponent } from './pages/client/signin/signin.component';
 import { RegisterComponent } from './pages/client/register/register.component';
 import { UserListComponent } from './pages/admin/user-list/user-list.component';
 import { CategoryEditComponent } from './pages/admin/category-edit/category-edit.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { CategoryEditComponent } from './pages/admin/category-edit/category-edit
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ProductService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
