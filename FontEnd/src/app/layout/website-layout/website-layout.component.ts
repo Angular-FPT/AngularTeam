@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./website-layout.component.scss']
 })
 export class WebsiteLayoutComponent {
-
+  getUserInfo() {
+    const userInfo = JSON.parse(localStorage.getItem('user')!)
+    return userInfo
+  }
+  handleLogout() {
+    const logout = localStorage.removeItem('user');
+    return logout
+  }
 }

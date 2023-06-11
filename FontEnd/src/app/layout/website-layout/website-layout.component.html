@@ -13,12 +13,26 @@
 						<div class="top_nav_left">MIỄN PHÍ GIAO HÀNG TRÊN TOÀN QUỐC KHI MUA 5 SẢN PHẨM !</div>
 					</div>
 					<div class="col-md-6 text-right">
-						<div class="top_nav_right">
-							<ul class="top_nav_menu">
+						<div class="top_nav_right" >
+							<ul class="top_nav_menu" *ngIf="getUserInfo() !== null">
 
 								<!-- Currency / Language / My Account -->
+								
+								<li class="account">
+									<a href="">
+										{{ getUserInfo().user.name }}
+									</a>
+								</li>
+								<li class="account">
+								
+										<button class="btn btn-danger" (click)="handleLogout()">Log out</button>
+									
+								</li>
+						
+							</ul>
+							<ul class="top_nav_menu">
 
-
+							
 								<li class="account">
 									<a href="/signup">
 										Đăng Ký
