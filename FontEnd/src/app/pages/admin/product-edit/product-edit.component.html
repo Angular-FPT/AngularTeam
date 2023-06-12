@@ -38,12 +38,11 @@
     <select
       formControlName="categoryId"
       class="form-control"
+      [(ngModel)]="selectedCategoryId"
       formControlName="categoryId"
     >
       <option value="">Chọn danh mục</option>
-      <option *ngFor="let category of categories" [value]="category._id">
-        {{ category.name }}
-      </option>
+      <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>>
     </select>
     <!-- <div *ngIf="isControlInvalid('categoryId')" class="text-danger">
       Vui lòng chọn danh mục
