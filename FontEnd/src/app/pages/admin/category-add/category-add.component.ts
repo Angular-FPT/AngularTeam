@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 import { ICategory } from 'src/app/interface/Category';
-
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-add',
@@ -16,7 +17,9 @@ export class CategoryAddComponent {
 
   constructor(
     private categoryService: CategoryService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   onHandleSubmit() {
@@ -28,6 +31,8 @@ export class CategoryAddComponent {
       this.categoryService.addCategory(category).subscribe(
         (response) => {
           console.log('Thêm sản phẩm thành công:', response);
+          this.toastr.success('Thêm danh mục thành công');
+          this.router.navigate(['/admin/category']);
         },
         (error) => {
           console.error('Lỗi khi thêm sản phẩm:', error);

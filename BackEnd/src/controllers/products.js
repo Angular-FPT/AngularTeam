@@ -36,9 +36,9 @@ export const getAll = async (req, res) => {
     }
 };
 export const getAllAdmin = async (req, res) => {
-    const { _limit = 10000, _sort = 'createAt', _order = 'asc', _page = 1 } = req.query;
+    const { _limit = 1000, _sort = 'createAt', _order = 'asc', _page = 1 } = req.query;
     const options = {
-        page: _page,
+        page: parseInt(_page, 10),
         limit: _limit,
         sort: {
             [_sort]: _sort == 'desc' ? -1 : 1,
@@ -107,6 +107,7 @@ export const create = async (req, res) => {
             product,
         });
     } catch (error) {
+        console.log(error);
         return res.status(400).json({
             message: error.message,
         });
