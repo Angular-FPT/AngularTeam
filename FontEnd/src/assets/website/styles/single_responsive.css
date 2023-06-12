@@ -302,11 +302,6 @@
 		margin-left: 0px;
 		margin-top: 15px;
 	}
-	.add_to_cart_button
-	{
-		margin-left: 0px;
-		margin-top: 15px;
-	}
 	.product_favorite
 	{
 		margin-left: 0px;
@@ -446,10 +441,7 @@
 		height: 15px;
 		font-size: 10px;		
 	}
-	.add_to_cart_button
-	{
-		margin-top: 20px;
-	}
+
 	.section_title::after
 	{
 	    top: calc(100% + 8px);
@@ -504,12 +496,7 @@
 		font-size: 12px !important;
 	}
 	.review_submit_btn,
-	.add_to_cart_button
-	{
-		font-size: 12px;
-		width: 130px;
-		height: 36px;
-	}
+	
 	.footer_nav_container
 	{
 		margin-top: 35px;
