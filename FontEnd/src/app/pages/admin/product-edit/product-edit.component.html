@@ -40,7 +40,7 @@
       class="form-control"
       formControlName="categoryId"
     >
-      <option value="">Chọn danh mục</option>
+      <option value="" disabled selected>Chọn danh mục</option>
       <option *ngFor="let category of categories" [value]="category._id">
         {{ category.name }}
       </option>
