@@ -22,6 +22,7 @@ export class ProductEditComponent {
   product!: IProduct;
   // ObjectId!: string;
   categories: ICategory[] = [];
+  selectedCategoryId: string = '';
 
   productForm = this.formBuilder.group({
     name: [''],
@@ -51,6 +52,7 @@ export class ProductEditComponent {
           author: product.author,
           quantity: product.quantity,
           // categoryId: product.categoryId,
+          categoryId: String(product.categoryId),
           description: product.description,
           image: product.image,
           
@@ -60,8 +62,8 @@ export class ProductEditComponent {
   }
   ngOnInit(): void {
     this.loadCategories(); 
+    this.selectedCategoryId = this.product.categoryId ? String(this.product.categoryId) : '';
   }
-
   loadCategories() {
     this.categoryService.getCategory().subscribe(
       (categories) => {
