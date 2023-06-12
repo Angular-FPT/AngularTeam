@@ -24,7 +24,7 @@ export class CategoriesComponent {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if(id){
-        this.productService.getProducts().subscribe((products: any) => {
+        this.productService.getProductsAdmin().subscribe((products: any) => {
           this.products = products.docs.filter((product: IProduct) => product.categoryId === id);
           console.log(this.products);
           console.log({id})
