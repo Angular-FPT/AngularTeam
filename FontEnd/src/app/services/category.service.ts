@@ -19,6 +19,13 @@ export class CategoryService {
   addCategory(category: ICategory): Observable<ICategory> {
     return this.http.post<ICategory>(`http://localhost:8081/api/category`, category);
   }
+
+  deleteCategory(id: any): Observable<ICategory> {
+    return this.http.delete<ICategory>(
+      `http://localhost:8081/api/category/${id}`
+    );
+  }
+
   updateCategory(category: ICategory): Observable<ICategory> {
     return this.http.patch<ICategory>(
       `http://localhost:8081/api/category/${category._id}`,

@@ -30,15 +30,12 @@ export class ProductService {
     );
   }
 
-  uploadImage(image: File): Observable<IProduct> {
+  uploadImage(images: File): Observable<string> {
     const formData = new FormData();
-    formData.append('image', image);
-    return this.http.post<any>(
-      'http://localhost:8081/api/images/upload',
-      formData
-    );
+    formData.append('images', images);
+    return this.http.post<any>('http://localhost:8081/api/images/upload', formData);
   }
-
+  
   updateProduct(product: IProduct): Observable<IProduct> {
     return this.http.patch<IProduct>(
       `http://localhost:8081/api/products/${product._id}`,
