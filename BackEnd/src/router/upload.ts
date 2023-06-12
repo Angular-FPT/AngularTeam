@@ -8,7 +8,6 @@ const router = express.Router();
 interface CloudinaryParams {
     folder: string;
     format: string;
-    // các thuộc tính khác của `Params` nếu cần
 }
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
@@ -18,7 +17,10 @@ const storage = new CloudinaryStorage({
     } as CloudinaryParams
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 10 * 1024 * 1024 }, 
+  });
 
 router.post("/images/upload", upload.array("images", 10), uploadImage);
 router.delete("/images/:publicId", deleteImage);
