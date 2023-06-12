@@ -14,4 +14,7 @@ export class UserService {
   signin(user:IUser):Observable<IUser>{
     return this.http.post<IUser>('http://localhost:8081/api/signin', user);
   }
+  isAuthenticated(): any {
+    return JSON.parse(localStorage.getItem('user') || '{}');
+  }
 }

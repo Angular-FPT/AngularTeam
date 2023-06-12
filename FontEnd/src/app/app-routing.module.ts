@@ -13,11 +13,12 @@ import { CategoryEditComponent } from './pages/admin/category-edit/category-edit
 import { CategoriesComponent } from './pages/client/categories/categories.component';
 import { SigninComponent } from './pages/client/signin/signin.component';
 import { RegisterComponent } from './pages/client/register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminLayoutComponent,
+    component: AdminLayoutComponent,canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'product', pathMatch: 'full' },
       { path: 'product', component: ProductListComponent },
